@@ -1,3 +1,86 @@
+# bootstrap
+
+# path to oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$ZSH/custom"
+
+# clone oh-my-zsh if missing
+if [[ ! -d $ZSH ]]; then
+  echo "oh-my-zsh is missing\n installing oh-my-zsh…"
+  git clone https://github.com/ohmyzsh/ohmyzsh.git "$ZSH"
+fi
+
+# clone p10k theme
+if [[ ! -d $ZSH_CUSTOM/themes/powerlevel10k ]]; then
+  echo "p10k is missing\n installing p10k theme…"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+    "$ZSH_CUSTOM/themes/powerlevel10k"
+fi
+
+# clone zsh-autosuggestions
+if [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]]; then
+  echo "zsh-autosuggestions is missing\n installing zsh-autosuggestions…"
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git \
+    "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+fi
+
+# clone zsh-syntax-highlighting
+if [[ ! -d $ZSH_CUSTOM/plugins/zsh-syntax-highlighting ]]; then
+  echo "zsh-syntax-highlighting is missing\n installing zsh-syntax-highlighting…"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+fi
+
+# detect OS for package hints
+if [[ "$OSTYPE" == darwin* ]]; then
+  pkg_mgr="brew install"
+elif [[ -f /etc/fedora-release ]]; then
+  pkg_mgr="sudo dnf install"
+else
+  pkg_mgr="install"
+fi
+
+# display hint for other packages
+for cmd in thefuck fzf direnv pyenv zoxide node poetry; do
+  if ! command -v $cmd >/dev/null 2>&1; then
+    case $cmd in
+      thefuck)
+        hint="$pkg_mgr thefuck"
+        ;;
+      fzf)
+        hint="$pkg_mgr fzf && \$(fzf)/install"
+        ;;
+      direnv)
+        hint="$pkg_mgr direnv && follow next steps"
+        ;;
+      pyenv)
+        hint="$pkg_mgr pyenv && follow next steps"
+        ;;
+      zoxide)
+        hint="$pkg_mgr zoxide && follow next steps"
+        ;;
+      node)
+        hint="$pkg_mgr node"
+        ;;
+      poetry)
+        hint="$pkg_mgr poetry"
+        ;;
+      *)
+        hint="$pkg_mgr $cmd"
+        ;;
+    esac
+    echo "WARNING: '$cmd' not found. To install, run: $hint"
+    echo "	Once installed, verify with: $cmd --version"
+  fi
+done
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # imports
 
 # fzf
@@ -41,17 +124,11 @@ export SUDO_EDITOR=$(which nvim)
 export VISUAL=$(which nvim)
 export EDITOR=$(which nvim)
 
-# path to oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# use qt5ct
-export QT_QPA_PLATFORMTHEME="qt5ct"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="mtanveer"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # uncomment the following line to use hyphen-insensitive completion.
 # case-sensitive completion must be off. _ and - will be interchangeable.
@@ -138,6 +215,7 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias p10kconfig="nvim ~/.p10k.zsh"
 alias vi="nvim"
 alias svi="sudo nvim"
 alias svim="sudo nvim"
@@ -145,3 +223,6 @@ alias sdi="sudo dnf install"
 alias sdu="sudo dnf update"
 alias sdr="sudo dnf remove"
 alias sds="sudo dnf search"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

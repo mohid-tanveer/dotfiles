@@ -71,8 +71,7 @@
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
-  "editor.fontFamily": "MingLiu, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 14,
+  "editor.fontFamily": "SF Mono",
   "terminal.integrated.fontSize": 14,
   "chat.editor.fontFamily": "MingLiu, Monaco, 'Courier New', monospace",
   "chat.editor.fontSize": 14,
@@ -81,7 +80,7 @@
   "security.workspace.trust.untrustedFiles": "open",
   "github.copilot.preferredAccount": "mohid-tanveer",
   "workbench.colorTheme": "mohids vscode theme",
-  "python.defaultInterpreterPath": "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+  "python.defaultInterpreterPath": "~/.direnv/python-3.13/bin/python3",
   "[python]": {
     "diffEditor.ignoreTrimWhitespace": false,
     "gitlens.codeLens.symbolScopes": ["!Module"],
@@ -89,7 +88,7 @@
     "editor.wordBasedSuggestions": "off",
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "prettier.prettierPath": "/Users/mtanveer/.nvm/versions/node/v22.13.1/lib/node_modules/prettier",
+  "prettier.prettierPath": "./node_modules/prettier",
   "editor.formatOnSave": true,
   "diffEditor.codeLens": true,
   "python.createEnvironment.contentButton": "show",
@@ -102,5 +101,7 @@
     "strings": "on"
   },
   "cursor.cmdk.autoSelect": false,
-  "cursor.cpp.disabledLanguages": ["plaintext"]
+  "cursor.cpp.disabledLanguages": ["plaintext"],
+  "editor.fontSize": 12,
+  "prettier.semi": false
 }

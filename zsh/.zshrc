@@ -109,17 +109,28 @@ eval "$(direnv hook zsh)"
 typeset -A ZSH_HIGHLIGHT_STYLES
 
 typeset -gA ZSH_HIGHLIGHT_STYLES=(
-  path                            'fg=#8700FF'
-  path_pathseparator              'fg=#8700FF'
-  path_prefix                     'fg=#8700FF'
-  path_prefix_pathseparator       'fg=#8700FF'
-  directory                       'fg=#8700FF'
-  autodirectory                   'fg=#8700FF'
+  path                            'fg=93'
+  path_pathseparator              'fg=93'
+  path_prefix                     'fg=93'
+  path_prefix_pathseparator       'fg=93'
+  directory                       'fg=93'
+  autodirectory                   'fg=93'
   history-expansion               'fg=magenta'
   command                         'fg=green'
   precommand                      'fg=green'
   unknown                         'fg=red'
   suffix-alias                    'fg=green'
+  dollar-quoted-argument          'fg=105'
+  back-quoted-argument            'fg=105'
+  back-double-quoted-argument     'fg=105'
+  back-dollar-quoted-argument     'fg=105'
+  dollar-double-quoted-argument   'fg=105'
+  command-substitution            'fg=105'
+  process-substitution            'fg=105'
+  double-hyphen-option            'fg=105'
+  single-hyphen-option            'fg=105'
+  double-quoted-argument          'fg=105'
+  single-quoted-argument          'fg=105'
 )
 
 # use nvim

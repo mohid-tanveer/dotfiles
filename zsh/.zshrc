@@ -4,6 +4,12 @@
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
 # clone oh-my-zsh if missing
 if [[ ! -d $ZSH ]]; then
   echo "oh-my-zsh is missing\n installing oh-my-zsh…"
@@ -92,12 +98,6 @@ bindkey '^R' fzf-history-widget
 # bind Ctrl-T to fuzzy‐search files in the current directory
 bindkey '^T' fzf-file-widget
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
 # thefuck
 eval "$(thefuck --alias)"
 
@@ -107,17 +107,20 @@ eval "$(direnv hook zsh)"
 
 # disable underlining of paths, commands, etc.
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[path]='fg=yellow'               # your paths stay yellow, no underline
-ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[directory]='fg=cyan'           # full dirs if you like them different
-ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=magenta' # keep the normal colour
-ZSH_HIGHLIGHT_STYLES[command]='fg=green'             # co stay green
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'          # sudo stays green
-ZSH_HIGHLIGHT_STYLES[unknown]='fg=red' 
-ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=green'
-ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
+
+typeset -gA ZSH_HIGHLIGHT_STYLES=(
+  path                            'fg=#8700FF'
+  path_pathseparator              'fg=#8700FF'
+  path_prefix                     'fg=#8700FF'
+  path_prefix_pathseparator       'fg=#8700FF'
+  directory                       'fg=#8700FF'
+  autodirectory                   'fg=#8700FF'
+  history-expansion               'fg=magenta'
+  command                         'fg=green'
+  precommand                      'fg=green'
+  unknown                         'fg=red'
+  suffix-alias                    'fg=green'
+)
 
 # use nvim
 export SUDO_EDITOR=$(which nvim)
@@ -216,6 +219,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias p10kconfig="nvim ~/.p10k.zsh"
+alias kittyconfig="nvim ~/.config/kitty/kitty.conf"
 alias vi="nvim"
 alias svi="sudo nvim"
 alias svim="sudo nvim"

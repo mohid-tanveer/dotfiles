@@ -1,53 +1,161 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "type": "chafa",
-    "source": "/home/mohid/.images/shinji.png",
-    "width": 50,
-    "chafa": {
-      "fgOnly": false,
-      "symbols": "ascii",
-      "canvasMode": "TRUECOLOR",
-      "colorSpace": "RGB",
-      "ditherMode": "NONE"
-    }
+    "source": "/home/mohid/.ansi/shinji.ans"
   },
   "display": {
-    "color": {
-      "keys": "38;5;93",
-      "title": "38;5;93"
+    "pipe": true,
+    "key": {
+      "width": 16
     },
-    "brightColor": false
+    "separator": "│ ",
+    "percent": {
+      "type": ["bar", "hide-others"]
+    },
+    "bar": {
+      "borderLeft": "",
+      "borderRight": "",
+      "charElapsed": "█",
+      "charTotal": "░",
+      "width": 40
+    },
+    "constants": ["\u001b[42C"]
   },
   "modules": [
-    "title",
-    "separator",
-    "os",
-    "host",
-    "kernel",
-    "uptime",
-    "packages",
-    "shell",
-    "display",
-    "de",
-    "wm",
-    "wmtheme",
-    "theme",
-    "icons",
-    "font",
-    "cursor",
-    "terminal",
-    "terminalfont",
-    "cpu",
-    "gpu",
-    "memory",
-    "swap",
-    "disk",
-    "localip",
-    "battery",
-    "poweradapter",
-    "locale",
-    "break",
-    "colors"
+    {
+      "type": "custom",
+      "format": "┌┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┬┐"
+    },
+    {
+      "type": "custom",
+      "format": "├┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┴┤"
+    },
+    {
+      "type": "shell",
+      "key": " ",
+      "format": "│                   {pretty-name} {version} via kitty                   │"
+    },
+    {
+      "type": "custom",
+      "format": "│                     UNIT-01 REPORT                    │"
+    },
+    {
+      "type": "custom",
+      "format": "├────────────┬──────────────────────────────────────────┤"
+    },
+    {
+      "type": "os",
+      "key": "│ OS         │{$1}",
+      "format": "{id} {variant-id} {version-id}"
+    },
+    {
+      "type": "kernel",
+      "key": "│ KERNEL     │{$1}",
+      "format": "{release}"
+    },
+    {
+      "type": "title",
+      "key": "│ USER       │{$1}",
+      "format": "{user-name}@{host-name}"
+    },
+    {
+      "type": "wm",
+      "key": "│ WM         │{$1}",
+      "format": "{pretty-name} ({protocol-name})"
+    },
+    {
+      "type": "custom",
+      "format": "├────────────┼──────────────────────────────────────────┤"
+    },
+    {
+      "type": "cpu",
+      "key": "│ PROCESSOR  │{$1}",
+      "format": "{name} @ {freq-max}{/freq-max}{freq-base}{/}"
+    },
+    {
+      "type": "memory",
+      "key": "│ MEMORY     │{$1}",
+      "format": "{used} / {total} [{percentage}]",
+      "percent": {
+        "type": ["num"]
+      }
+    },
+    {
+      "type": "memory",
+      "key": "│ USAGE      │{$1}",
+      "format": "",
+      "percent": {
+        "type": ["bar", "hide-others"]
+      }
+    },
+    {
+      "type": "custom",
+      "format": "├────────────┼──────────────────────────────────────────┤"
+    },
+    {
+      "type": "gpu",
+      "key": "│ GPU        │{$1}",
+      "format": "{vendor} {name}"
+    },
+    {
+      "type": "gpu",
+      "key": "│ VRAM       │{$1}",
+      "format": "{dedicated-used} / {dedicated-total}",
+      "driverSpecific": true
+    },
+    {
+      "type": "gpu",
+      "key": "│ DRIVER     │{$1}",
+      "format": "{driver}"
+    },
+    {
+      "type": "display",
+      "key": "│ DISPLAY    │{$1}",
+      "format": "{name} /// {width}x{height}@{refresh-rate}Hz [HDR{/hdr-enabled}SDR{/}]"
+    },
+    {
+      "type": "custom",
+      "format": "├────────────┼──────────────────────────────────────────┤"
+    },
+    {
+      "type": "editor",
+      "key": "│ EDITOR     │{$1}",
+      "format": "{exe-name} {version}"
+    },
+    {
+      "type": "command",
+      "key": "│ GIT        │{$1}",
+      "text": "git version",
+      "format": "git {~12}"
+    },
+    {
+      "type": "opencl",
+      "key": "│ OPENCL     │{$1}",
+      "format": "nvidia cuda {version~9}"
+    },
+    {
+      "type": "command",
+      "key": "│ NODE       │{$1}",
+      "text": "node --version",
+      "format": "node {~1}"
+    },
+    {
+      "type": "custom",
+      "format": "├────────────┼──────────────────────────────────────────┤"
+    },
+    {
+      "type": "sound",
+      "key": "│ SOUND      │{$1}",
+      "format": "{name>24}"
+    },
+    {
+      "type": "media",
+      "key": "│ SONG       │{$1}",
+      "format": "{title} - {artist}"
+    },
+    {
+      "type": "custom",
+      "format": "└────────────┴──────────────────────────────────────────┘"
+    }
   ]
 }

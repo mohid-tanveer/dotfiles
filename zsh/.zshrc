@@ -126,6 +126,12 @@ typeset -gA ZSH_HIGHLIGHT_STYLES=(
   single-quoted-argument          'fg=105'
 )
 
+# adjust dircolors
+# load your custom colours
+if [[ -r ~/.dircolors ]]; then
+  eval "$(dircolors -b ~/.dircolors)"
+fi
+
 # use nvim
 export SUDO_EDITOR=$(which nvim)
 export VISUAL=$(which nvim)

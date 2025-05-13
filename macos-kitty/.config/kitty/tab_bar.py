@@ -1,101 +1,81 @@
-from datetime import datetime
+import subprocess
+import re
 from kitty.boss import get_boss
 from kitty.fast_data_types import Screen, add_timer
 from kitty.rgb import to_color
 from kitty.tab_bar import (
     DrawData,
+    TabBarData,
     ExtraData,
     Formatter,
-    TabBarData,
-    as_rgb,
     draw_attributed_string,
-    draw_tab_with_powerline,
+    as_rgb,
 )
+import platform
 
-LEFT_HALF_CIRCLE = ""
-CALENDAR_CLOCK_ICON = "󰃰 "
+# colors
+ACTIVE_BG = "#000000"
+INACTIVE_BG = "#0f0f0f"
+FOREGROUND_COL = "#00ff00"
+
+LEFT_ROUND = ""
+RIGHT_ROUND = ""
+
+# nerd-font icons
 TERMINAL_ICON = " "
-REFRESH_TIME = 1
+REFRESH_SECS = 1
+
+timer_id = None
 
 
-def _get_active_process_name_cell() -> dict:
-    cell = {"icon": TERMINAL_ICON, "icon_bg_color": "#a8e4a4", "text": ""}
+def _get_active_process_cell() -> dict:
     boss = get_boss()
-
-    # Error 1: No boss instance found.
-    if not boss:
-        cell["text"] = "Err 1"
+    cell = {"icon": TERMINAL_ICON, "icon_bg_color": FOREGROUND_COL, "text": ""}
+    if not boss or not boss.active_window or not boss.active_window.child:
+        cell["text"] = "n/a"
         return cell
-
-    active_window = boss.active_window
-    # Error 2: No active window found
-    if not active_window:
-        cell["text"] = "Err 2"
-        return cell
-    # Error 3: No process is associated with the active window.
-    if not active_window.child:
-        cell["text"] = "Err 3"
-        return cell
-
-    foreground_processes = active_window.child.foreground_processes
-    # Error 4: No foreground process found.
-    if not foreground_processes or not foreground_processes[0]["cmdline"]:
-        cell["text"] = "Err 4"
-        return cell
-    long_process_name = foreground_processes[0]["cmdline"][0]
-    cell["text"] = long_process_name.rsplit("/", 1)[-1]
-
+    procs = boss.active_window.child.foreground_processes
+    if not procs or not procs[0].get("cmdline"):
+        cell["text"] = "n/a"
+    else:
+        cell["text"] = procs[0]["cmdline"][0].rsplit("/", 1)[-1]
     return cell
 
 
-def _get_datetime_cell() -> dict:
-    now = datetime.now().strftime("%d-%m-%Y %H:%M")
-    return {"icon": CALENDAR_CLOCK_ICON, "icon_bg_color": "#90b4fc", "text": now}
-
-
 def _create_cells() -> list[dict]:
-    return [_get_active_process_name_cell(), _get_datetime_cell()]
+    return [_get_active_process_cell()]
 
 
-def _draw_right_status(screen: Screen, is_last: bool, draw_data: DrawData) -> int:
-    if not is_last:
-        return 0
+def _draw_right_status(screen: Screen, draw_data: DrawData) -> None:
     draw_attributed_string(Formatter.reset, screen)
-
     cells = _create_cells()
-    right_status_length = 0
-    for c in cells:
-        right_status_length += 3 + len(c["icon"]) + len(c["text"])
-
-    screen.cursor.x = screen.columns - right_status_length
-
+    total = sum(
+        len(LEFT_ROUND) + len(c["icon"]) + len(c["text"]) + len(RIGHT_ROUND) + 1
+        for c in cells
+    )
+    screen.cursor.x = screen.columns - total
     default_bg = as_rgb(int(draw_data.default_bg))
-    tab_fg = as_rgb(int(draw_data.inactive_fg))
 
-    screen.cursor.bg = default_bg
     for c in cells:
-        icon_bg_color = as_rgb(int(to_color(c["icon_bg_color"])))
-        screen.cursor.fg = icon_bg_color
-        screen.draw(LEFT_HALF_CIRCLE)
-
-        screen.cursor.bg = icon_bg_color
-        screen.cursor.fg = 1
+        icon_bg = as_rgb(int(to_color(c["icon_bg_color"])))
+        # left-round cut-in
+        screen.cursor.bg = default_bg
+        screen.cursor.fg = icon_bg
+        screen.draw(LEFT_ROUND)
+        # icon: bg=icon_bg, fg=default_bg
+        screen.cursor.bg = icon_bg
+        screen.cursor.fg = default_bg
         screen.draw(c["icon"])
-
-        screen.cursor.bg = as_rgb(int(to_color("#383444")))
-        screen.cursor.fg = as_rgb(int(to_color("#ffffff")))
-        screen.draw(f" {c['text']} ")
-
-    return screen.cursor.x
-
-
-def _redraw_tab_bar(_) -> None:
-    tm = get_boss().active_tab_manager
-    if tm is not None:
-        tm.mark_tab_bar_dirty()
-
-
-timer_id = None
+        # text: bg=icon_bg, fg=default_bg
+        screen.cursor.bg = icon_bg
+        screen.cursor.fg = default_bg
+        screen.draw(c["text"])
+        # right-round cut-out
+        screen.cursor.bg = default_bg
+        screen.cursor.fg = icon_bg
+        screen.draw(RIGHT_ROUND)
+        # space separator
+        screen.draw(" ")
 
 
 def draw_tab(
@@ -110,9 +90,44 @@ def draw_tab(
 ) -> int:
     global timer_id
     if timer_id is None:
-        timer_id = add_timer(_redraw_tab_bar, REFRESH_TIME, True)
-    draw_tab_with_powerline(
-        draw_data, screen, tab, before, max_title_length, index, is_last, extra_data
-    )
-    _draw_right_status(screen, is_last, draw_data)
+        timer_id = add_timer(
+            lambda _: get_boss().active_tab_manager.mark_tab_bar_dirty(),
+            REFRESH_SECS,
+            True,
+        )
+
+    # pick colors
+    bg_hex = ACTIVE_BG if tab.is_active else INACTIVE_BG
+    bg_rgb = as_rgb(int(to_color(bg_hex)))
+    fg_rgb = as_rgb(int(to_color(FOREGROUND_COL)))
+    default_bg = as_rgb(int(draw_data.default_bg))
+
+    screen.cursor.x = before
+    draw_attributed_string(Formatter.reset, screen)
+
+    if not tab.is_active:
+        # left-round for inactive
+        screen.cursor.bg = default_bg
+        screen.cursor.fg = bg_rgb
+        screen.draw(LEFT_ROUND)
+    else:
+        screen.draw(" ")
+
+    # title
+    title = tab.title[:max_title_length]
+    screen.cursor.bg = bg_rgb
+    screen.cursor.fg = fg_rgb
+    screen.draw(f" {title} ")
+
+    if not tab.is_active:
+        # right-round for inactive
+        screen.cursor.bg = default_bg
+        screen.cursor.fg = bg_rgb
+        screen.draw(RIGHT_ROUND)
+    else:
+        screen.draw(" ")
+
+    if is_last:
+        _draw_right_status(screen, draw_data)
+
     return screen.cursor.x

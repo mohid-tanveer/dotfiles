@@ -47,7 +47,7 @@ else
 fi
 
 # display hint for other packages
-for cmd in thefuck fzf direnv pyenv zoxide node poetry; do
+for cmd in thefuck fzf pyenv zoxide node poetry; do
   if ! command -v $cmd >/dev/null 2>&1; then
     case $cmd in
       thefuck)
@@ -55,9 +55,6 @@ for cmd in thefuck fzf direnv pyenv zoxide node poetry; do
         ;;
       fzf)
         hint="$pkg_mgr fzf && \$(fzf)/install"
-        ;;
-      direnv)
-        hint="$pkg_mgr direnv && follow next steps"
         ;;
       pyenv)
         hint="$pkg_mgr pyenv && follow next steps"
@@ -100,10 +97,6 @@ bindkey '^T' fzf-file-widget
 
 # thefuck
 eval "$(thefuck --alias)"
-
-# direnv
-export DIRENV_LOG_FORMAT=""
-eval "$(direnv hook zsh)"
 
 # disable underlining of paths, commands, etc.
 typeset -A ZSH_HIGHLIGHT_STYLES
@@ -191,7 +184,6 @@ plugins=(
   zsh-autosuggestions
   fzf
   zoxide
-  direnv
   node
   npm
   pyenv
@@ -231,6 +223,7 @@ alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias p10kconfig="nvim ~/.p10k.zsh"
 alias kittyconfig="nvim ~/.config/kitty/kitty.conf"
+alias nvimconfig="nvim ~/.config/nvim/init.lua"
 alias vi="nvim"
 alias svi="sudo nvim"
 alias svim="sudo nvim"

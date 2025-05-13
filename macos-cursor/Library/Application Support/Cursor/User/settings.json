@@ -71,7 +71,7 @@
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
-  "editor.fontFamily": "SF Mono",
+  "editor.fontFamily": "SFMono Nerd Font",
   "terminal.integrated.fontSize": 14,
   "chat.editor.fontFamily": "MingLiu, Monaco, 'Courier New', monospace",
   "chat.editor.fontSize": 14,

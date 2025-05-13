@@ -137,6 +137,9 @@ export SUDO_EDITOR=$(which nvim)
 export VISUAL=$(which nvim)
 export EDITOR=$(which nvim)
 
+# add python packages to path
+export PATH="$HOME/.local/bin:$PATH"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -231,8 +234,8 @@ alias p10kconfig="nvim ~/.p10k.zsh"
 alias kittyconfig="nvim ~/.config/kitty/kitty.conf"
 alias nvimconfig="nvim ~/.config/nvim/init.lua"
 alias vi="nvim"
-alias svi="sudo nvim"
-alias svim="sudo nvim"
+alias svi="sudoedit"
+alias svim="sudoedit"
 alias sdi="sudo dnf install"
 alias sdu="sudo dnf update"
 alias sdr="sudo dnf remove"

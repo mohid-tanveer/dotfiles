@@ -1,24 +1,24 @@
 {
-	"name": "mohids-vscode-theme",
-	"displayName": "mohids-vscode-theme",
-	"description": "",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.80.0"
-	},
-	"categories": [
-		"Themes"
-	],
-	"contributes": {
-		"themes": [
-			{
-				"label": "mohids vscode theme",
-				"uiTheme": "vs-dark",
-				"path": "./themes/mohids vscode theme-color-theme.json"
-			}
-		]
-	},
-	"__metadata": {
-		"size": 68281
-	}
+  "name": "mohids-vscode-theme",
+  "displayName": "mohids-vscode-theme",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "mohids vscode theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/evangelion.json"
+      }
+    ]
+  },
+  "__metadata": {
+    "size": 68281
+  }
 }

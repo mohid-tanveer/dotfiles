@@ -104,5 +104,6 @@
   "cursor.cpp.disabledLanguages": ["plaintext"],
   "prettier.semi": false,
   "editor.fontSize": 12,
-  "files.autoSave": "onWindowChange"
+  "files.autoSave": "onWindowChange",
+  "prettier.insertPragma": true
 }

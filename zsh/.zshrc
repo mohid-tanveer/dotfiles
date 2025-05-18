@@ -243,7 +243,7 @@ alias sdi="sudo dnf install"
 alias sdu="sudo dnf update"
 alias sdr="sudo dnf remove"
 alias sds="sudo dnf search"
-
+alias sdsu="sudo dnf upgrade --refresh && flatpak update"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

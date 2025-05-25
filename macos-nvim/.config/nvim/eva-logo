@@ -1,8 +1,12 @@
 #!/bin/sh
 case "$1" in
 -c*)
-q='[0m'
-[ "$1" != "-cc" ] && q="[0m [1;35mG[0m [1;35mE[0m [1;35mT[0m   [1;35mI[0m [1;35mN[0m   [1;35mT[0m [1;35mH[0m [1;35mE[0m   [1;35mF[0m [1;35mU[0m [1;35mK[0m [1;35mK[0m [1;35mE[0m [1;35mN[0m  [1m [1;35mR[0m [1;35mO[0m [1;35mB[0m [1;35mO[0m [1;35mT[0m   [1;35mS[0m [1;35mH[0m [1;35mI[0m [1;35mN[0m [1;35mJ[0m [1;35mI[0m"
+q="[0m
+      [1;38;2;0;255;0mg[0m [1;38;2;0;255;0me[0m [1;38;2;0;255;0mt[0m   \
+[1;38;2;0;255;0mi[0m [1;38;2;0;255;0mn[0m   \
+[1;38;2;0;255;0mt[0m [1;38;2;0;255;0mh[0m [1;38;2;0;255;0me[0m   \
+[1;38;2;0;255;0mr[0m [1;38;2;0;255;0mo[0m [1;38;2;0;255;0mb[0m [1;38;2;0;255;0mo[0m [1;38;2;0;255;0mt[0m   \
+[1;38;2;0;255;0ms[0m [1;38;2;0;255;0mh[0m [1;38;2;0;255;0mi[0m [1;38;2;0;255;0mn[0m [1;38;2;0;255;0mj[0m [1;38;2;0;255;0mi[0m[1;38;2;0;255;0m...[0m"
 cat << X0
 
 
@@ -42,10 +46,9 @@ X0
 ;;
 *) cat << X0
  eva-logo: display an ascii art evangelion logo in your shell/editor
- usage: ./eva-logo [-c|-cc|-b|-h]
+ usage: ./eva-logo [-c|-b|-h]
  flags:
    -c  : logo in 256 colors
-	 -cc : logo "clean" (no cursing) in 256 colors
    -b  : logo in black and white (text only)
    -h  : display this message
  credits:

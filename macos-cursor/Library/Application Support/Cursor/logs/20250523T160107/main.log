@@ -1,0 +1,6 @@
+2025-05-23 16:01:08.041 [info] updateURL https://api2.cursor.sh/updates/api/update/darwin-universal/cursor/0.50.6/07da648522b3d6e95ad24b8088b43e15ed152c6b740311fe0bbc712ac5d4b49b/stable
+2025-05-23 16:01:08.041 [info] update#setState idle
+2025-05-23 16:01:37.958 [info] update#setState checking for updates
+2025-05-23 16:01:38.548 [info] UpdateService onUpdateNotAvailable()
+2025-05-23 16:01:38.549 [info] update#setState idle
+2025-05-23 16:02:20.340 [info] Extension host with pid 59984 exited with code: 0, signal: unknown.

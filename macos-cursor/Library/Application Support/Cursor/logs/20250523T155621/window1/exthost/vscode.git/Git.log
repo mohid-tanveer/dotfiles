@@ -1,0 +1,19 @@
+2025-05-23 15:56:25.567 [info] [main] Log level: Info
+2025-05-23 15:56:25.567 [info] [main] Validating found git in: "/opt/homebrew/bin/git"
+2025-05-23 15:56:25.585 [info] [main] Using git "2.49.0" from "/opt/homebrew/bin/git"
+2025-05-23 15:56:25.585 [info] [Model][doInitialScan] Initial repository scan started
+2025-05-23 15:56:25.586 [info] [Model][doInitialScan] Initial repository scan completed - repositories (0), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-05-23 15:56:26.273 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [4ms]
+2025-05-23 15:56:26.273 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-23 15:56:26.279 [info] > git rev-parse --verify origin/main [4ms]
+2025-05-23 15:56:26.279 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-23 15:56:26.283 [info] > git rev-parse --verify origin/master [3ms]
+2025-05-23 15:56:26.283 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-23 15:56:26.287 [info] > git rev-parse --verify origin/develop [4ms]
+2025-05-23 15:56:26.287 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-23 15:56:26.291 [info] > git branch -r [3ms]
+2025-05-23 15:56:26.291 [info] fatal: not a git repository (or any of the parent directories): .git
+2025-05-23 15:56:26.296 [info] > git config --get init.defaultBranch [4ms]
+2025-05-23 15:56:35.605 [info] > git config --global user.name [19ms]
+2025-05-23 15:56:35.612 [info] > git config --global user.email [6ms]
+2025-05-23 15:56:35.613 [info] [main] Stored git author name in global state: mohid-tanveer <mohid.tanveer011@gmail.com>

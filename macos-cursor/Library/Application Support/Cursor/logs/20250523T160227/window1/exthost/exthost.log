@@ -1,0 +1,32 @@
+2025-05-23 16:02:29.006 [info] Extension host with pid 60460 started
+2025-05-23 16:02:29.007 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-05-23 16:02:29.011 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-05-23 16:02:29.045 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-05-23 16:02:29.103 [info] Eager extensions activated
+2025-05-23 16:02:29.107 [info] ExtensionService#_doActivateExtension anysphere.cursor-always-local, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 16:02:29.195 [info] ExtensionService#_doActivateExtension anysphere.cursor-deeplink, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 16:02:29.221 [info] ExtensionService#_doActivateExtension anysphere.cursor-retrieval, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 16:02:29.317 [info] ExtensionService#_doActivateExtension anysphere.cursor-shadow-workspace, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 16:02:29.351 [info] ExtensionService#_doActivateExtension anysphere.cursor-tokenize, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 16:02:29.463 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 16:02:29.465 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 16:02:30.545 [info] Extension host terminating: renderer closed the MessagePort
+2025-05-23 16:02:30.553 [error] ProxyResolver#resolveProxy DIRECT Canceled: Canceled
+	at new iJt (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:44:111665)
+	at det.U (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:44:116303)
+	at n.<computed>.a.charCodeAt.n.<computed> (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:44:113795)
+	at $a.resolveProxy (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:130:273169)
+	at Object.resolveProxy (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:179:17875)
+	at useProxySettings (/Applications/Cursor.app/Contents/Resources/app/node_modules/@vscode/proxy-agent/out/index.js:182:16)
+	at /Applications/Cursor.app/Contents/Resources/app/node_modules/@vscode/proxy-agent/out/index.js:119:13
+	at /Applications/Cursor.app/Contents/Resources/app/node_modules/@vscode/proxy-agent/out/index.js:681:13 
+2025-05-23 16:02:30.556 [error] Error: Channel has been closed
+	at n (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:141:2438)
+	at Object.appendLine (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:141:2577)
+	at c (/Applications/Cursor.app/Contents/Resources/app/extensions/cursor-always-local/dist/main.js:2:1558023)
+	at t.deactivate (/Applications/Cursor.app/Contents/Resources/app/extensions/cursor-always-local/dist/main.js:2:1559679)
+	at /Applications/Cursor.app/Contents/Resources/app/extensions/cursor-always-local/dist/main.js:2:285747
+	at t.deactivate (/Applications/Cursor.app/Contents/Resources/app/extensions/cursor-always-local/dist/main.js:2:285806)
+	at async Promise.all (index 0)
+	at async Joe.$ (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:139:10141)
+2025-05-23 16:02:30.556 [info] Extension host with pid 60460 exiting with code 0

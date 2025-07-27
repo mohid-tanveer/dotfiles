@@ -1,0 +1,28 @@
+2025-05-23 15:56:25.152 [info] Extension host with pid 59516 started
+2025-05-23 15:56:25.159 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-05-23 15:56:25.170 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-23 15:56:25.178 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-23 15:56:25.209 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-05-23 15:56:25.492 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-05-23 15:56:25.495 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-05-23 15:56:25.530 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-05-23 15:56:25.587 [info] Eager extensions activated
+2025-05-23 15:56:25.590 [info] ExtensionService#_doActivateExtension anysphere.cursor-always-local, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 15:56:25.690 [info] ExtensionService#_doActivateExtension anysphere.cursor-deeplink, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 15:56:25.719 [info] ExtensionService#_doActivateExtension anysphere.cursor-retrieval, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 15:56:25.827 [info] ExtensionService#_doActivateExtension anysphere.cursor-shadow-workspace, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 15:56:25.863 [info] ExtensionService#_doActivateExtension anysphere.cursor-tokenize, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 15:56:25.985 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 15:56:25.988 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-05-23 16:00:52.953 [info] Extension host terminating: renderer closed the MessagePort
+2025-05-23 16:00:52.973 [error] Error: Channel has been closed
+	at n (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:141:2438)
+	at Object.appendLine (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:141:2577)
+	at c (/Applications/Cursor.app/Contents/Resources/app/extensions/cursor-always-local/dist/main.js:2:1558023)
+	at t.deactivate (/Applications/Cursor.app/Contents/Resources/app/extensions/cursor-always-local/dist/main.js:2:1559679)
+	at /Applications/Cursor.app/Contents/Resources/app/extensions/cursor-always-local/dist/main.js:2:285747
+	at t.deactivate (/Applications/Cursor.app/Contents/Resources/app/extensions/cursor-always-local/dist/main.js:2:285806)
+	at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+	at async Promise.all (index 1)
+	at async $oe.$ (file:///Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/api/node/extensionHostProcess.js:139:10141)
+2025-05-23 16:00:52.974 [info] Extension host with pid 59516 exiting with code 0

@@ -1,0 +1,110 @@
+{
+  "editor.inlineSuggest.enabled": true,
+  "cSpell.userWords": [
+    "amar",
+    "Autocorrector",
+    "Bioinformatics",
+    "checkpw",
+    "consts",
+    "datatypes",
+    "dijkstras",
+    "emsp",
+    "errorscreen",
+    "gensalt",
+    "hashpw",
+    "Hashtable",
+    "javac",
+    "jsonify",
+    "minmax",
+    "MOHID",
+    "mohids",
+    "mohidtanveer",
+    "navbars",
+    "noopener",
+    "noreferrer",
+    "passcode",
+    "predeploy",
+    "pymongo",
+    "Reaumur",
+    "Receiptify",
+    "searchpage",
+    "sess",
+    "setchoice",
+    "signup",
+    "spotipy",
+    "TANVEER",
+    "topnav",
+    "userid",
+    "usertaken",
+    "VARCHAR",
+    "welikethis",
+    "Werror"
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "editor.fontFamily": "SFMono Nerd Font",
+  "terminal.integrated.fontSize": 14,
+  "chat.editor.fontFamily": "MingLiu, Monaco, 'Courier New', monospace",
+  "chat.editor.fontSize": 14,
+  "git.autofetch": true,
+  "explorer.confirmDragAndDrop": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "github.copilot.preferredAccount": "mohid-tanveer",
+  "workbench.colorTheme": "mohids vscode theme",
+  "python.defaultInterpreterPath": "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+  "[python]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "gitlens.codeLens.symbolScopes": ["!Module"],
+    "editor.formatOnType": true,
+    "editor.wordBasedSuggestions": "off",
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "prettier.prettierPath": "/Users/mtanveer/.nvm/versions/node/v22.13.1/lib/node_modules/prettier",
+  "editor.formatOnSave": true,
+  "diffEditor.codeLens": true,
+  "python.createEnvironment.contentButton": "show",
+  "cursor.general.gitGraphIndexing": "enabled",
+  "git.confirmSync": false,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "cursor.cmdk.autoSelect": false,
+  "cursor.cpp.disabledLanguages": ["plaintext"],
+  "prettier.semi": false,
+  "editor.fontSize": 12,
+  "files.autoSave": "onWindowChange",
+  "window.commandCenter": true,
+  "update.releaseTrack": "prerelease"
+}

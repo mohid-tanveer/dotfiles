@@ -80,7 +80,7 @@
   "security.workspace.trust.untrustedFiles": "open",
   "github.copilot.preferredAccount": "mohid-tanveer",
   "workbench.colorTheme": "mohids vscode theme",
-  "python.defaultInterpreterPath": "~/.direnv/python-3.13/bin/python",
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
   "[python]": {
     "diffEditor.ignoreTrimWhitespace": false,
     "gitlens.codeLens.symbolScopes": ["!Module"],
@@ -105,5 +105,6 @@
   "prettier.semi": false,
   "editor.fontSize": 12,
   "files.autoSave": "onWindowChange",
-  "prettier.insertPragma": true
+  "prettier.insertPragma": true,
+  "python.pythonPath": "/opt/homebrew/bin/python3"
 }

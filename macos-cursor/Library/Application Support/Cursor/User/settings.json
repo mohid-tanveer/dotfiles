@@ -105,7 +105,7 @@
   "prettier.semi": false,
   "editor.fontSize": 12,
   "files.autoSave": "onWindowChange",
-  "prettier.insertPragma": true,
+  "prettier.insertPragma": false,
   "python.pythonPath": "/opt/homebrew/bin/python3",
   "cursor.cpp.enablePartialAccepts": true
 }

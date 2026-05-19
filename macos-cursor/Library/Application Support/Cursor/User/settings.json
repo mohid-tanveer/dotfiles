@@ -10,23 +10,37 @@
     "dijkstras",
     "emsp",
     "errorscreen",
+    "frombuffer",
     "gensalt",
     "hashpw",
     "Hashtable",
+    "ipynb",
     "javac",
     "jsonify",
+    "kmeans",
+    "lbfgs",
+    "linalg",
+    "matplotlib",
+    "medoids",
     "minmax",
+    "mnist",
     "MOHID",
     "mohids",
     "mohidtanveer",
     "navbars",
+    "newaxis",
     "noopener",
     "noreferrer",
+    "numpy",
     "passcode",
     "predeploy",
+    "prototypeselection",
     "pymongo",
+    "pyplot",
     "Reaumur",
     "Receiptify",
+    "scikit",
+    "scipy",
     "searchpage",
     "sess",
     "setchoice",
@@ -34,42 +48,43 @@
     "spotipy",
     "TANVEER",
     "topnav",
+    "ubyte",
     "userid",
     "usertaken",
     "VARCHAR",
     "welikethis",
-    "Werror"
+    "Werror",
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[java]": {
-    "editor.defaultFormatter": "redhat.java"
+    "editor.defaultFormatter": "redhat.java",
   },
   "[c]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
+    "editor.defaultFormatter": "ms-vscode.cpptools",
   },
   "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
+    "editor.defaultFormatter": "ms-vscode.cpptools",
   },
   "editor.fontFamily": "SF Mono",
   "terminal.integrated.fontSize": 14,
@@ -86,7 +101,7 @@
     "gitlens.codeLens.symbolScopes": ["!Module"],
     "editor.formatOnType": true,
     "editor.wordBasedSuggestions": "off",
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter",
   },
   "prettier.prettierPath": "./node_modules/prettier",
   "editor.formatOnSave": true,
@@ -95,10 +110,10 @@
   "cursor.general.gitGraphIndexing": "enabled",
   "git.confirmSync": false,
   "files.associations": {
-    "*.css": "tailwindcss"
+    "*.css": "tailwindcss",
   },
   "editor.quickSuggestions": {
-    "strings": "on"
+    "strings": "on",
   },
   "cursor.cmdk.autoSelect": false,
   "cursor.cpp.disabledLanguages": ["plaintext"],
@@ -107,5 +122,5 @@
   "files.autoSave": "onWindowChange",
   "prettier.insertPragma": false,
   "python.pythonPath": "/opt/homebrew/bin/python3",
-  "cursor.cpp.enablePartialAccepts": true
+  "cursor.cpp.enablePartialAccepts": true,
 }
